@@ -1,0 +1,18 @@
+<div style="width: 100%; height: 250px;"></div>
+<div *ngFor="let img of imageService.imgList" class="col-5">
+  <img [src]="img.download_url">
+</div>
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="3"
+  [infiniteScrollUpDistance]="1"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()">
+</div>
+<div *ngIf="!finished" style="padding: 50px 0">
+  Загрузка...
+</div>
+<div *ngIf="finished">
+  Конец
+</div>
+
